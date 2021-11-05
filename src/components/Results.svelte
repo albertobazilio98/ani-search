@@ -1,5 +1,5 @@
 <div class="result-list">
-  {#each results.slice(0, 3) as result}
+  {#each filteredResults() as result}
     <div class="result-item">
       <AniVideo videoURL={result.video}/>
       <div class="info">
@@ -19,6 +19,11 @@
 <script lang="ts">
   import type { traceMoeResponse } from '../api/traceMoe';
   import AniVideo from './AniVideo.svelte';
+
+  $: filteredResults = () => {
+    const ids = [...new Set(results.map(result => result.anilist))].slice(0, 3);
+    return ids.map(id => results.find(result => result.anilist === id))
+  }
 
   export let results: traceMoeResponse['result'];
 </script>

@@ -11,7 +11,6 @@
   import Results from "./components/Results.svelte";
   import type { traceMoeResponse } from './api/traceMoe';
 
-  let file: File;
   let res: traceMoeResponse;
 </script>
 
@@ -22,8 +21,6 @@
 		display: grid;
     grid-gap: 16px;
     padding: 6rem 2.66rem;
-    // justify-content: center;
-    // justify-items: center;
     max-width: 1024px;
 
     h1 {
