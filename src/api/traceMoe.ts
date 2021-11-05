@@ -1,18 +1,29 @@
 const baseUrl = 'https://api.trace.moe/';
 
-async function get(url: string, data: object) {
-  const formData = new FormData();
-  Object.entries(data).forEach(entry => formData.append(...entry));
+async function get({ querystring, formData }: { querystring?: string, formData?: FormData }) {
 
-  const result = await fetch(url, {
+  const result = await fetch(`${baseUrl}search?${querystring}`, {
     method: "POST",
     body: formData,
   });
   return result.json() as Promise<traceMoeResponse>;
 }
 
-async function search(body: { image: File }) {
-  const result = await get(`${baseUrl}search?cutBorders`, body);
+async function searchByUpload({ image, params }: { image: File, params?: object }) {
+  const formData = new FormData();
+  formData.append('image', image);
+  const querystring = new URLSearchParams('cutBorders=true');
+  params && Object.entries(params).forEach(entry => querystring.append(...entry));
+
+  const result = await get({ querystring: querystring.toString(), formData});
+  return result;
+}
+
+async function searchByURL(params: { url: string }) {
+  const querystring = new URLSearchParams('cutBorders=true');
+  Object.entries(params).forEach(entry => querystring.append(...entry));
+
+  const result = await get({ querystring: querystring.toString()});
   return result;
 }
 
@@ -31,5 +42,5 @@ type traceMoeResponse = {
   }[];
 }
 
-export { search };
+export { searchByUpload, searchByURL };
 export type { traceMoeResponse }

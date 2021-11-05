@@ -8,7 +8,8 @@
   <div class="spinner-ring"></div>
   <div class="spinner-ring"></div>
   <div class="spinner-ring"></div>
-</div><script lang="ts">
+</div>
+<script lang="ts">
 </script>
 <style>
   .fingerprint-spinner, .fingerprint-spinner * {
