@@ -8,7 +8,7 @@
   <input type="file" class="invisible-input" id="imageInput" on:change={handleInput}>
   <label for="imageInput" class="container">
     <div class="">
-      <Upload size="128px" color="#404040"/>
+      <Upload size="8rem" color="#404040"/>
       <div class="text">
         drag 'n drop zone
       </div>
@@ -67,7 +67,7 @@
   .drop-zone {
     height: 384px;
     padding: 32px;
-    border-radius: 16px;
+    border-radius: 1em;
     background-color: #add8e6;
 
     &.active {
@@ -79,14 +79,14 @@
     }
 
     .container {
-      border: #404040 4px dashed;
+      border: #404040 0.25rem dashed;
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       .text {
-        font-size: 24px;
+        font-size: 1.625rem;
         color: #404040;
       }
     }

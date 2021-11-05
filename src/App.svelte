@@ -1,35 +1,18 @@
 <main>
   <h1>Upload an anime screenshot to find out which anime and episode it belongs to</h1>
-  {#if file}
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <img src={URL.createObjectURL(file)} on:click={removeImage}>
-  {:else}
-    <Uploader on:fileUploaded={handleUpload} />
-  {/if}
+  <Search bind:response={res} />
   {#if res && !res.error}
     <Results results={res.result} />
   {/if}
 </main>
 
 <script lang="ts">
-  import Uploader from "./components/Uploader.svelte";
+  import Search from "./components/Search.svelte";
   import Results from "./components/Results.svelte";
-  import { search, traceMoeResponse } from './api/traceMoe';
+  import type { traceMoeResponse } from './api/traceMoe';
 
   let file: File;
   let res: traceMoeResponse;
-
-  async function handleUpload(f) {
-		console.log(f.detail);
-    file = f.detail;
-    res = await search({ image: file });
-    console.log(res)
-  }
-
-  function removeImage() {
-    file = null;
-    res = null;
-  }
 </script>
 
 <style lang="scss">
@@ -38,7 +21,7 @@
     text-align: center;
 		display: grid;
     grid-gap: 16px;
-    padding: 8rem;
+    padding: 6rem 2.66rem;
     // justify-content: center;
     // justify-items: center;
     max-width: 1024px;

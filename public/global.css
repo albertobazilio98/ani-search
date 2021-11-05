@@ -1,18 +1,20 @@
 html, body {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 16px;
 }
 
 body {
   color: #404040;
   font-family: 'Fira Sans', sans-serif;
-  /* background-color: #e0ffff; */
   background-image: url('./layered-waves-haikei.svg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom 0;
+  background-position: bottom center;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 
 a {
@@ -34,7 +36,6 @@ label {
 
 input, button, select, textarea {
   font-family: inherit;
-  font-size: 16px;
   -webkit-padding: 0.4em 0;
   padding: 0.4em;
   margin: 0 0 0.5em 0;
@@ -63,4 +64,16 @@ button:not(:disabled):active {
 
 button:focus {
   border-color: #666;
+}
+
+@media (max-width: 960px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
 }

@@ -23,6 +23,11 @@
 </script>
 <style lang="scss">
   .video {
+    margin: 0 auto;
     grid-area: video;
+    max-width: 320px;
+    video {
+      max-width: 100%;
+    }
   }
 </style>

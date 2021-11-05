@@ -1,7 +1,7 @@
 <div class="result-list">
   {#each results.slice(0, 3) as result}
     <div class="result-item">
-      <AniVideo videoURL={result.video} />
+      <AniVideo videoURL={result.video}/>
       <div class="info">
         <a href="https://anilist.co/anime/{result.anilist}" class="name" target="blank">
           {result.filename} 
@@ -18,31 +18,21 @@
 </div>
 <script lang="ts">
   import type { traceMoeResponse } from '../api/traceMoe';
-import AniVideo from './AniVideo.svelte';
-  import AnuVideo from './AniVideo.svelte';
+  import AniVideo from './AniVideo.svelte';
 
   export let results: traceMoeResponse['result'];
-
-  function handleHover(e: MouseEvent) {
-    const video = e.target as HTMLMediaElement;
-    video.play();
-  }
-
-  function handleLeave(e: MouseEvent) {
-    const video = e.target as HTMLMediaElement;
-    video.pause();
-  }
 </script>
 <style lang="scss">
 .result-list {
   display: grid;
   grid-gap: 1rem;
   text-align: left;
-  padding: 32px;
+  padding: 1rem;
+  max-width: 100%;
   .result-item {
     display: grid;
     grid-gap: 1rem;
-    grid-template: "video info" / 320px 1fr;
+    grid-template: "video info" / 1fr 2fr;
     background-color: rgba(173, 216, 230, 0.6);
     border-radius: 1rem;
     padding: 1rem;
@@ -67,6 +57,13 @@ import AniVideo from './AniVideo.svelte';
         grid-area: assurance;
       }
     }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .result-list .result-item {
+    grid-template: "video" "info";
   }
 }
 </style>
