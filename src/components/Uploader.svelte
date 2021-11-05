@@ -87,7 +87,6 @@
       justify-content: center;
       .text {
         font-size: 1.625rem;
-        color: #404040;
       }
     }
   }

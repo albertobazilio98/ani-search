@@ -5,10 +5,14 @@
   {:else}
     <Uploader on:fileUploaded={handleUpload} />
   {/if}
+  {#if (file && !response)}
+    <Spinner />
+  {/if}
 </div>
 
 <script lang="ts">
   import Uploader from "./Uploader.svelte";
+  import Spinner from './Spinner.svelte'
   import { search, traceMoeResponse } from '../api/traceMoe';
 
   let file: File;

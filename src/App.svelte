@@ -26,10 +26,6 @@
     // justify-items: center;
     max-width: 1024px;
 
-    img {
-      width: 100%;
-    }
-
     h1 {
       font-size: 2rem;
       font-weight: bold;
