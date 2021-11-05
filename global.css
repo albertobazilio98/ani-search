@@ -1,0 +1,45 @@
+html, body {
+  position: relative;
+  width: 100%;
+  min-height: 16px;
+}
+
+body {
+  color: #404040;
+  font-family: 'Fira Sans', sans-serif;
+  background-color: #d1edee;
+  background-image: url('./layered-waves-haikei.svg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+a {
+  color: rgb(0,100,200);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: rgb(0,80,160);
+}
+
+
+@media (max-width: 960px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}
